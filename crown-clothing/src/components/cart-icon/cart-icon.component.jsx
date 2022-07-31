@@ -3,8 +3,8 @@ import { CartContext } from '../../contexts/carts.context'
 import { ReactComponent as ShoppingIcon } from '../../assets/shopping-bag.svg'
 import './cart-icon.style.scss'
 
-const CartIcon = ({ cartToggle })=>{
-    const { isCartOpen,setIsCartOpen } = useContext(CartContext)
+const CartIcon = ()=>{
+    const { isCartOpen,setIsCartOpen,cartItemCount } = useContext(CartContext)
 
     const cartToggel = ()=> {
         if(isCartOpen){
@@ -16,7 +16,7 @@ const CartIcon = ({ cartToggle })=>{
     return(
         <div className='cart-icon-container' onClick={cartToggel}>
             <ShoppingIcon className='shopping-icon'/>
-            <span className='item-count'>0</span>
+            <span className='item-count'>{cartItemCount}</span>
         </div>
     )
 }
